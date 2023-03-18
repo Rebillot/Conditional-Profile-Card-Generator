@@ -1,3 +1,5 @@
+import { left } from "@popperjs/core";
+import { name } from "file-loader";
 import "../style/index.css";
 
 /**
@@ -28,19 +30,123 @@ function render(variables = {}) {
   // if includeCover==false then we reset the cover code without the <img> tag to make the cover transparent.
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
+  ////
+  ///
+  //
+  //
+  //
+  //
+  //
+  //
 
+  var name = variables.name;
+  if (variables.name === null) {
+    variables.name = "Name";
+    name = variables.name;
+  }
+
+  var lastname = variables.lastname;
+  if (variables.lastname === null) {
+    variables.lastname = "Last Name";
+    lastname = variables.lastname;
+  }
+
+  var socialMediaPosition = variables.socialMediaPosition;
+  if (variables.socialMediaPosition == "position-left") {
+    variables.socialMediaPosition = "position-left";
+  } else {
+    variables.socialMediaPosition = "position-right";
+  }
+
+  var twitter = variables.twitter;
+  if (variables.twitter === null) {
+    variables.twitter = `https://twitter.com/i/flow/signup`;
+  } else {
+    variables.twitter = `https://twitter.com/${variables.twitter}`;
+  }
+
+  var github = variables.github;
+  if (variables.github === null) {
+    variables.github = `https://github.com/`;
+  } else {
+    variables.github = `https://github.com/${variables.github}`;
+  }
+
+  var linkedin = variables.linkedin;
+  if (variables.linkedin === null) {
+    variables.linkedin = `https://www.linkedin.com/`;
+  } else {
+    variables.linkedin = `https://www.linkedin.com/${variables.linkedin}`;
+  }
+
+  var instagram = variables.instagram;
+  if (variables.instagram === null) {
+    variables.instagram = `https://www.instagram.com/`;
+  } else {
+    variables.instagram = `https://www.instagram.com/${variables.instagram}`;
+  }
+
+  var role = variables.role;
+  if (variables.role === null) {
+    variables.role = "Select Role";
+  } else if (variables.role === "Web Developer") {
+    variables.role = "Web Developer";
+  } else if (variables.role === "Technical Writter") {
+    variables.role = "Technical Writter";
+  } else {
+    variables.role === "Floor Planner";
+    variables.role = "Floor Planner";
+  }
+
+  var city = variables.city;
+  if (variables.city === null) {
+    variables.city = "Select city";
+  } else if (variables.city === "Miami") {
+    variables.city = "Miami";
+  } else if (variables.city === "Munich") {
+    variables.city = "Munich";
+  } else if (variables.city === "Caracas") {
+    variables.city = "Caracas";
+  } else {
+    variables.city === "Toronto";
+    variables.city = "Toronto";
+  }
+
+  var country = variables.country;
+  if (variables.country === null) {
+    variables.country = "Select country";
+  } else if (variables.country === "USA") {
+    variables.country = "USA";
+  } else if (variables.country === "Germany") {
+    variables.country = "Germany";
+  } else if (variables.country === "Canada") {
+    variables.country = "Canada";
+  } else {
+    variables.country === "Venezuela";
+    variables.country = "Venezuela";
+  }
+
+  //
+  //
+  //
+  //ddd
+  //
+  //
+
+  //
+  //
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          <h1>"${variables.name} ${variables.lastname}" </h1>
+          <h2>${variables.role}</h2>
+          <h3>${variables.city},${variables.country}</h3>
+          <ul class="${variables.socialMediaPosition}">
+            <li><a href="${variables.twitter}"><i class="bi bi-twitter"></i></a></li>
+            <li><a href="${variables.github}"><i class="bi bi-github"></i></a></li>
+            <li><a href="${variables.linkedin}"><i class="bi bi-linkedin"></i></a></li>
+            <li><a href="${variables.instagram}"><i class="bi bi-instagram"></i></a></li>
           </ul>
         </div>
     `;
@@ -61,7 +167,7 @@ window.onload = function() {
     socialMediaPosition: "position-left",
     // social media usernames
     twitter: null,
-    github: "alesanchezr",
+    github: null,
     linkedin: null,
     instagram: null,
     name: null,
